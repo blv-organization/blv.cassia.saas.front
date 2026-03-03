@@ -18,6 +18,7 @@ import { VideosComponent } from './pages/ui-elements/videos/videos.component';
 import { SignInComponent } from './pages/auth-pages/sign-in/sign-in.component';
 import { SignUpComponent } from './pages/auth-pages/sign-up/sign-up.component';
 import { CalenderComponent } from './pages/calender/calender.component';
+import { AnalyticsComponent } from './pages/dashboard/analytics/analytics.component';
 
 export const routes: Routes = [
   {
@@ -26,10 +27,16 @@ export const routes: Routes = [
     children:[
       {
         path: '',
-        component: EcommerceComponent,
+        // component: EcommerceComponent,
         pathMatch: 'full',
-        title:
-          'Angular Ecommerce Dashboard | TailAdmin - Angular Admin Dashboard Template',
+        title: 'Cassia',
+        redirectTo:'analytics'
+      },
+      {
+        path: 'analytics',
+        component: AnalyticsComponent,
+        pathMatch: 'full',
+        title: 'Cassia - Analytics',
       },
       {
         path:'calendar',
