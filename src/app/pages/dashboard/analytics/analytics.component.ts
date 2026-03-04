@@ -23,7 +23,7 @@ export class AnalyticsComponent implements AfterViewInit {
   ngAfterViewInit() {
     flatpickr(this.datepicker.nativeElement, {
       mode: 'range',
-      // static: true,
+      static: true,
       monthSelectorType: 'static',
       dateFormat: 'M j',
       defaultDate: this.defaultDate,
