@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class AnalyticService {
 
-  private baseUrl: string = 'http://cassiasaasapi.runasp.net/api/v1';
+  private baseUrl: string = 'https://blv-cassia-saas-api.onrender.com/api/v1';
 
   constructor(private readonly http: HttpClient) { }
   

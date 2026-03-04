@@ -1,7 +1,8 @@
 <div class="grid grid-cols-12 gap-4 md:gap-6">
   
-  <div class="col-span-12 space-y-6 xl:col-span-7">
-     <div class="relative max-w-40">
+  <div class="col-span-12 space-y-6">
+    <div class="flex justify-end">
+      <div class="relative max-w-40">
             <input #datepicker class="h-10 w-full max-w-11 rounded-lg border border-gray-200 bg-white py-2.5 pl-[34px] pr-4 text-theme-sm font-medium text-gray-700 shadow-theme-xs focus:outline-hidden focus:ring-0 focus-visible:outline-hidden dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 xl:max-w-fit xl:pl-11" placeholder="Select dates" data-class="flatpickr-right" readonly="readonly" />
             <div class="absolute inset-0 right-auto flex items-center pointer-events-none left-4">
                 <svg class="fill-gray-700 dark:fill-gray-400" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -9,46 +10,81 @@
                 </svg>
             </div>
         </div>
+    </div>
   </div>
   
-  <div class="col-span-12 space-y-6 xl:col-span-7">
-    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-6">
-  <!-- Metric Item Start -->
-  <div class="rounded-2xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-white/[0.03] md:p-6">
-    <div class="flex items-center justify-center w-12 h-12 bg-gray-100 rounded-xl dark:bg-gray-800" [innerHTML]="icons.decagramPercent | safeHtml">
-    </div>
-    <div class="flex items-end justify-between mt-5">
-      <div>
-        <span class="text-sm text-gray-500 dark:text-gray-400">Cotizaciones</span>
-        <h4 class="mt-2 font-bold text-gray-800 text-title-sm dark:text-white/90">{{ quotationTenant?.quotations }}</h4>
-        <p class="mt-2 text-gray-400 dark:text-white/40">de {{ quotationLeaders[0]?.quotations }}</p>
+  <div class="col-span-12 space-y-6">
+    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 md:gap-6">
+      <!-- Metric Item Start -->
+      <div class="rounded-2xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-white/[0.03] md:p-6">
+        <div class="flex items-center justify-center w-12 h-12 bg-gray-100 rounded-xl dark:bg-gray-800" [innerHTML]="icons.decagramPercent | safeHtml">
+        </div>
+        <div class="flex items-end justify-between mt-5">
+          <div>
+            <span class="text-sm text-gray-500 dark:text-gray-400">Cotizaciones</span>
+            <h4 class="mt-2 font-bold text-gray-800 text-title-sm dark:text-white/90">{{ quotationTenant?.quotations }}</h4>
+            <p class="mt-2 text-gray-400 dark:text-white/40">de {{ quotationLeaders[0]?.quotations }}</p>
+          </div>
+          <app-badge color="success">
+            <span [innerHTML]="icons.arrowUpIcon | safeHtml"></span>
+            {{ quotationTenant?.percentage }}%
+          </app-badge>
+        </div>
+        <div class="mt-5">
+          <p class="text-gray-400 dark:text-white/40">El primer lugar lo obtuvo <strong>{{ quotationLeaders[0]?.company }}</strong> con {{ quotationLeaders[0]?.quotations }} cotizaciones consiguiendo el {{ quotationLeaders[0]?.percentage }}% de las ofertas.</p>
+        </div>
       </div>
-      <app-badge color="success">
-        <span [innerHTML]="icons.arrowUpIcon | safeHtml"></span>
-        {{ quotationTenant?.percentage }}%
-      </app-badge>
-    </div>
-    <div class="mt-5">
-      <p class="text-gray-400 dark:text-white/40">El primer lugar lo obtuvo <strong>{{ quotationLeaders[0]?.company }}</strong> con {{ quotationLeaders[0]?.quotations }} cotizaciones consiguiendo el {{ quotationLeaders[0]?.percentage }}% de las ofertas.</p>
-    </div>
-  </div>
-  <!-- Metric Item End -->
+      <!-- Metric Item End -->
 
-  <!-- Metric Item Start -->
-  <!-- <div class="rounded-2xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-white/[0.03] md:p-6">
-    <div class="flex items-center justify-center w-12 h-12 bg-gray-100 rounded-xl dark:bg-gray-800" [innerHTML]="icons.boxIconLine| safeHtml">
+      <!-- Metric Item Start -->
+      <!-- <div class="rounded-2xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-white/[0.03] md:p-6">
+        <div class="flex items-center justify-center w-12 h-12 bg-gray-100 rounded-xl dark:bg-gray-800" [innerHTML]="icons.boxIconLine| safeHtml">
+        </div>
+        <div class="flex items-end justify-between mt-5">
+          <div>
+            <span class="text-sm text-gray-500 dark:text-gray-400">Orders</span>
+            <h4 class="mt-2 font-bold text-gray-800 text-title-sm dark:text-white/90">5,359</h4>
+          </div>
+          <app-badge color="error">
+            <span [innerHTML]="icons.arrowDownIcon | safeHtml"></span>
+            9.05%
+          </app-badge>
+        </div>
+      </div> -->
+      <!-- Metric Item End -->
+
+      <!-- Metric Item Start -->
+      <!-- <div class="rounded-2xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-white/[0.03] md:p-6">
+        <div class="flex items-center justify-center w-12 h-12 bg-gray-100 rounded-xl dark:bg-gray-800" [innerHTML]="icons.boxIconLine| safeHtml">
+        </div>
+        <div class="flex items-end justify-between mt-5">
+          <div>
+            <span class="text-sm text-gray-500 dark:text-gray-400">Orders</span>
+            <h4 class="mt-2 font-bold text-gray-800 text-title-sm dark:text-white/90">5,359</h4>
+          </div>
+          <app-badge color="error">
+            <span [innerHTML]="icons.arrowDownIcon | safeHtml"></span>
+            9.05%
+          </app-badge>
+        </div>
+      </div> -->
+      <!-- Metric Item End -->
+
+      <!-- Metric Item Start -->
+      <!-- <div class="rounded-2xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-white/[0.03] md:p-6">
+        <div class="flex items-center justify-center w-12 h-12 bg-gray-100 rounded-xl dark:bg-gray-800" [innerHTML]="icons.boxIconLine| safeHtml">
+        </div>
+        <div class="flex items-end justify-between mt-5">
+          <div>
+            <span class="text-sm text-gray-500 dark:text-gray-400">Orders</span>
+            <h4 class="mt-2 font-bold text-gray-800 text-title-sm dark:text-white/90">5,359</h4>
+          </div>
+          <app-badge color="error">
+            <span [innerHTML]="icons.arrowDownIcon | safeHtml"></span>
+            9.05%
+          </app-badge>
+        </div>
+      </div> -->
+      <!-- Metric Item End -->
     </div>
-    <div class="flex items-end justify-between mt-5">
-      <div>
-        <span class="text-sm text-gray-500 dark:text-gray-400">Orders</span>
-        <h4 class="mt-2 font-bold text-gray-800 text-title-sm dark:text-white/90">5,359</h4>
-      </div>
-      <app-badge color="error">
-        <span [innerHTML]="icons.arrowDownIcon | safeHtml"></span>
-        9.05%
-      </app-badge>
-    </div>
-  </div> -->
-  <!-- Metric Item End -->
-</div>
 </div>
